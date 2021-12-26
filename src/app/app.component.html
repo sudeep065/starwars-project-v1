@@ -1,0 +1,20 @@
+<p>{{ name }}</p>
+<h2>Star Wars Characters</h2>
+
+<select id="charactersname" (change)="getFilmsForTheSelectedCharacter($event.target.value)">
+  <option value="">Please select any character</option>
+  <option *ngFor="let a of characters" value="{{a.url}}">{{a.name}}</option>
+</select>
+<ul class="list-group-item basic-info">
+  <li class="category"> <b>Films</b></li>
+    <ul class="filmInfo" *ngFor="let displayTitle of filmsTitleAndReleaseDate">  
+      <li><span class="category">Title:</span> 
+        {{displayTitle.title}}
+        </li>      
+      <li><span class="category">Release date: </span>
+      {{displayTitle.release_date | date:'fullDate'}}
+      </li>
+      <br>
+    </ul>
+  </ul>
+  <div class="error">{{error}}</div>
